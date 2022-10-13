@@ -47,7 +47,7 @@ namespace Semester1FinalProject
                 {
                     if (i == 0 && j == 0)
                     {
-                        Console.Write("y/x| ");
+                        Console.Write("x/y| ");
                         character_count += 5;
                     }
                     else if (i == 0 && j == board.GetLength(1))
@@ -136,6 +136,11 @@ namespace Semester1FinalProject
                             return false;
                     }
                 }
+                if (coordinates[0,0] == coordinates[1,0])
+                {
+                    if (board[coordinates[0, 0], coordinates[0, 1]] != '@')
+                            return false;
+                }
             }
             if (coordinates[0,0] == coordinates[1,0])
             {
@@ -155,6 +160,12 @@ namespace Semester1FinalProject
                             return false;
                     }
                 }
+                if (coordinates[0, 1] == coordinates[0, 1])
+                {
+                    if (board[coordinates[0, 0], coordinates[0, 1]] != '@')
+                        return false;
+                }
+
             }
 
             return true;
