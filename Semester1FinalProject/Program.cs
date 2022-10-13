@@ -84,7 +84,6 @@ namespace Semester1FinalProject
                 NextStep(ref player1, ref player2, ref board);
                 remaining_sotnes = board.GetStones();
             }
-            Console.ReadKey();
             if (player1.move_count > player2.move_count)
                 Console.WriteLine($"\n\n{player1.name} nyerte a játékot!");
             else

@@ -122,7 +122,7 @@ namespace Semester1FinalProject
             {
                 if (coordinates[0,0] < coordinates[1,0])
                 {
-                    for (int i = coordinates[0,0]; i <= coordinates[1,0] - coordinates[0,0];i++)
+                    for (int i = coordinates[0,0]; i <= coordinates[1,0];i++)
                     {
                         if (board[i, coordinates[0,1]] != '@')
                             return false;
@@ -130,7 +130,7 @@ namespace Semester1FinalProject
                 }
                 if (coordinates[0, 0] > coordinates[1, 0])
                 {
-                    for (int i = coordinates[1,0]; i >= coordinates[0, 0] - coordinates[1, 0]; i--)
+                    for (int i = coordinates[1,0]; i >= coordinates[0, 0]; i--)
                     {
                         if (board[i, coordinates[0, 1]] != '@')
                             return false;
@@ -141,15 +141,15 @@ namespace Semester1FinalProject
             {
                 if (coordinates[0, 1] < coordinates[1, 1])
                 {
-                    for (int i = coordinates[0, 1]; i <= coordinates[1, 1] - coordinates[0, 1]; i++)
+                    for (int i = coordinates[0, 1]; i <= coordinates[1, 1]; i++)
                     {
-                        if (board[coordinates[0,1], i] != '@')
+                        if (board[coordinates[0,0], i] != '@')
                             return false;
                     }
                 }
                 if (coordinates[0, 1] > coordinates[1, 1])
                 {
-                    for (int i = coordinates[0, 1]; i >= coordinates[0, 1] - coordinates[1, 1]; i--)
+                    for (int i = coordinates[0, 1]; i >= coordinates[1, 1]; i--)
                     {
                         if (board[coordinates[0,0], i] != '@')
                             return false;
@@ -166,14 +166,14 @@ namespace Semester1FinalProject
             {
                 if (coordinates[0, 0] < coordinates[1, 0])
                 {
-                    for (int i = coordinates[0, 0]; i <= coordinates[1, 0] - coordinates[0, 0]; i++)
+                    for (int i = coordinates[0, 0]; i <= coordinates[1, 0]; i++)
                     {
                         board[i, coordinates[0, 1]] = ' ';
                     }
                 }
                 if (coordinates[0, 0] > coordinates[1, 0])
                 {
-                    for (int i = coordinates[1, 0]; i >= coordinates[0, 0] - coordinates[1, 0]; i--)
+                    for (int i = coordinates[1, 0]; i >= coordinates[0, 0]; i--)
                     {
                         board[i, coordinates[0, 1]] = ' ';
                     }
@@ -185,15 +185,15 @@ namespace Semester1FinalProject
             {
                 if (coordinates[0, 1] < coordinates[1, 1])
                 {
-                    for (int i = coordinates[0, 1]; i <= coordinates[1, 1] - coordinates[0, 1]; i++)
+                    for (int i = coordinates[0, 1]; i <= coordinates[1, 1]; i++)
                     {
-                        board[coordinates[0, 1], i] = ' ';
+                        board[coordinates[0, 0], i] = ' ';
                       
                     }
                 }
                 if (coordinates[0, 1] > coordinates[1, 1])
                 {
-                    for (int i = coordinates[0, 1]; i >= coordinates[0, 1] - coordinates[1, 1]; i--)
+                    for (int i = coordinates[0, 1]; i >= coordinates[1, 1]; i--)
                     {
                         board[coordinates[0, 0], i] = ' ';
                     }
