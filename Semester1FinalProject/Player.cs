@@ -51,13 +51,11 @@ namespace Semester1FinalProject
             }
             if (!is_invalid)
             {
-                coordinates[0,0] = int.Parse(input_coordinates[0]);
-                coordinates[0,1] = int.Parse(input_coordinates[1]);
-                coordinates[1,0] = int.Parse(input_coordinates[2]);
-                coordinates[1,1] = int.Parse(input_coordinates[3]);
-                if (board.ValidateMove(coordinates))
+                Point point1 = new Point(int.Parse(input_coordinates[0]), int.Parse(input_coordinates[1]));
+                Point point2 = new Point(int.Parse(input_coordinates[2]), int.Parse(input_coordinates[3]));
+                if (board.ValidateMove(point1, point2))
                 {
-                    board.Update(coordinates);
+                    board.Update(point1, point2);
                     move_count++;
                 }
                 else

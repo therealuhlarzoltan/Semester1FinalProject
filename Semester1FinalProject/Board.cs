@@ -47,7 +47,7 @@ namespace Semester1FinalProject
                 {
                     if (i == 0 && j == 0)
                     {
-                        Console.Write("x/y| ");
+                        Console.Write("y/x| ");
                         character_count += 5;
                     }
                     else if (i == 0 && j == board.GetLength(1))
@@ -97,72 +97,67 @@ namespace Semester1FinalProject
             return stones;
         }
 
-        public bool ValidateMove(int[,] coordinates)
+        public bool ValidateMove(Point point1, Point point2)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                if (coordinates[i, 0] >= board.GetLength(0) || coordinates[i, 1] >= board.GetLength(1))
-                    return false;
-            }
+          
+            if (point1.x >= board.GetLength(1) || point2.x >= board.GetLength(1))
+                return false;
 
-            //for (int i = 0; i < coordinates.GetLength(0);i++)
-            //{
-            //    for (int j = 0; j < coordinates.GetLength(1);j++)
-            //    {
-            //        Console.WriteLine(coordinates[i, j]);
-            //    }
-            //}
+            if (point1.y >= board.GetLength(0) || point2.y >= board.GetLength(1))
+                return false;
 
-            if (coordinates[0, 1] != coordinates[1, 1] && coordinates[0, 0] != coordinates[1, 0])
+           
+
+            if (point1.x != point2.x && point1.y != point2.y)
             {
                 return false;
             }
 
-            if (coordinates[0,1] == coordinates[1,1])
+            if (point1.x == point2.x)
             {
-                if (coordinates[0,0] < coordinates[1,0])
+                if (point1.y < point2.y)
                 {
-                    for (int i = coordinates[0,0]; i <= coordinates[1,0];i++)
+                    for (int i = point1.y; i <= point2.y;i++)
                     {
-                        if (board[i, coordinates[0,1]] != '@')
+                        if (board[i, point1.x] != '@')
                             return false;
                     }
                 }
-                if (coordinates[0, 0] > coordinates[1, 0])
+                if (point1.y > point2.y)
                 {
-                    for (int i = coordinates[1,0]; i >= coordinates[0, 0]; i--)
+                    for (int i = point1.y; i >= point2.y; i--)
                     {
-                        if (board[i, coordinates[0, 1]] != '@')
+                        if (board[i, point1.x] != '@')
                             return false;
                     }
                 }
-                if (coordinates[0,0] == coordinates[1,0])
+                if (point1.y == point2.y)
                 {
-                    if (board[coordinates[0, 0], coordinates[0, 1]] != '@')
+                    if (board[point1.y, point1.x] != '@')
                             return false;
                 }
             }
-            if (coordinates[0,0] == coordinates[1,0])
+            if (point1.y == point2.y)
             {
-                if (coordinates[0, 1] < coordinates[1, 1])
+                if (point1.x < point2.x)
                 {
-                    for (int i = coordinates[0, 1]; i <= coordinates[1, 1]; i++)
+                    for (int i = point1.x; i <= point2.x; i++)
                     {
-                        if (board[coordinates[0,0], i] != '@')
+                        if (board[point1.y, i] != '@')
                             return false;
                     }
                 }
-                if (coordinates[0, 1] > coordinates[1, 1])
+                if (point1.x > point2.x)
                 {
-                    for (int i = coordinates[0, 1]; i >= coordinates[1, 1]; i--)
+                    for (int i = point1.x; i >= point2.x; i--)
                     {
-                        if (board[coordinates[0,0], i] != '@')
+                        if (board[point1.y, i] != '@')
                             return false;
                     }
                 }
-                if (coordinates[0, 1] == coordinates[0, 1])
+                if (point1.x == point2.x)
                 {
-                    if (board[coordinates[0, 0], coordinates[0, 1]] != '@')
+                    if (board[point1.y, point1.x] != '@')
                         return false;
                 }
 
@@ -171,47 +166,49 @@ namespace Semester1FinalProject
             return true;
         }
 
-        public void Update(int[,] coordinates)
+        public void Update(Point point1, Point point2)
         {
-            if (coordinates[0, 1] == coordinates[1, 1])
+            if (point1.x == point2.x)
             {
-                if (coordinates[0, 0] < coordinates[1, 0])
+                if (point1.y < point2.y)
                 {
-                    for (int i = coordinates[0, 0]; i <= coordinates[1, 0]; i++)
+                    for (int i = point1.y; i <= point2.y; i++)
                     {
-                        board[i, coordinates[0, 1]] = ' ';
+                        board[i, point1.x] = ' ';
                     }
                 }
-                if (coordinates[0, 0] > coordinates[1, 0])
+                if (point1.y > point2.y)
                 {
-                    for (int i = coordinates[1, 0]; i >= coordinates[0, 0]; i--)
+                    for (int i = point1.y; i >= point2.y; i--)
                     {
-                        board[i, coordinates[0, 1]] = ' ';
+                        board[i, point1.x] = ' ';    
                     }
                 }
-                if (coordinates[0, 0] == coordinates[1, 0])
-                    board[coordinates[0,0], coordinates[0,1]] = ' ';
+                if (point1.y == point2.y)
+                    board[point1.y, point1.x] = ' ';
             }
-            if (coordinates[0, 0] == coordinates[1, 0])
+            if (point1.y == point2.y)
             {
-                if (coordinates[0, 1] < coordinates[1, 1])
+                if (point1.x < point2.x)
                 {
-                    for (int i = coordinates[0, 1]; i <= coordinates[1, 1]; i++)
+                    for (int i = point1.x; i <= point2.x; i++)
                     {
-                        board[coordinates[0, 0], i] = ' ';
-                      
+                        board[point1.y, i] = ' ';
                     }
                 }
-                if (coordinates[0, 1] > coordinates[1, 1])
+                if (point1.x > point2.x)
                 {
-                    for (int i = coordinates[0, 1]; i >= coordinates[1, 1]; i--)
+                    for (int i = point1.x; i >= point2.x; i--)
                     {
-                        board[coordinates[0, 0], i] = ' ';
+                        board[point1.y, i] = ' ';
                     }
                 }
-                if (coordinates[0,1] == coordinates[1,1])
-                    board[coordinates[0,0], coordinates[0, 1]] = ' ';
+                if (point1.x == point2.x)
+                    board[point1.y, point1.x] = ' ';
+
             }
+
+
         }
     }
 }
