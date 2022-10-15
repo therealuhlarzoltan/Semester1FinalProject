@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Semester1FinalProject
 {
@@ -60,13 +57,17 @@ namespace Semester1FinalProject
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("\n\nÉrvénytelen lépés!");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Move(ref board);
                 }
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("\n\nÉrvénytelen koordináta érték(ek)!");
+                Console.ForegroundColor = ConsoleColor.White;
                 Move(ref board);
             }
         }

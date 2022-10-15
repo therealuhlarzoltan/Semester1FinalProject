@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Semester1FinalProject
 {
@@ -39,7 +36,9 @@ namespace Semester1FinalProject
 
         public void Draw()
         {
-            Console.WriteLine("\nA játéktábla aktuális állapota:\n\n");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n\nA játéktábla aktuális állapota:\n\n");
+            Console.ForegroundColor = ConsoleColor.White;
             int character_count = 0;
             for (int i = 0; i <= board.GetLength(0);i++)
             {
