@@ -1,6 +1,6 @@
 # Semester1FinalProject
 
-The final project for my first semester as a **Computer Science Engineering** student at *Óbuda University*.
+The final project for my first semester as a **Computer Science Engineering** student.
 
 ---
 
